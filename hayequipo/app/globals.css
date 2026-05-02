@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --he-celeste: #23A1D5;
+  --he-rojo: #ED615F;
+  --he-amarillo: #FFBE00;
+  --he-negro: #161616;
+  --he-blanco: #F2EDEB;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--he-negro);
+  color: var(--he-blanco);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Resaltado amarillo tipo garabato - SVG inline */
+.he-highlight {
+  position: relative;
+  display: inline;
+  padding: 0 4px;
+  white-space: normal;
+}
+
+.he-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 12% -4px 8% -4px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 311' preserveAspectRatio='none'><path fill='%23FFBE00' d='M20 155 Q 100 20 280 80 T 620 120 Q 850 60 1060 150 Q 1050 260 850 230 T 480 260 Q 180 290 30 220 Q 10 180 20 155Z'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transform: rotate(-1deg);
+}
+
+/* Variante en dark background */
+.he-highlight-dark::before {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 311' preserveAspectRatio='none'><path fill='%23FFBE00' d='M20 155 Q 100 20 280 80 T 620 120 Q 850 60 1060 150 Q 1050 260 850 230 T 480 260 Q 180 290 30 220 Q 10 180 20 155Z'/></svg>");
+}
+
+.he-highlight.he-highlight-dark {
+  color: var(--he-negro);
+}
+
+/* Eyebrow con flecha */
+.he-eyebrow::before {
+  content: ">> ";
+  color: var(--he-rojo);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--he-negro);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(242, 237, 235, 0.2);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(242, 237, 235, 0.3);
+}
+
+/* Modal backdrop */
+.he-modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Focus states */
+input:focus,
+button:focus-visible {
+  outline: 2px solid var(--he-celeste);
+  outline-offset: 2px;
+}
