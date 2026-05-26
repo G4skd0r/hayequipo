@@ -34,7 +34,7 @@ body {
   content: "";
   position: absolute;
   inset: 8% -8px -10% -8px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 96' preserveAspectRatio='none'><path fill='%23FFBE00' d='M10,32 C200,8 400,16 540,24 C680,12 880,8 1070,30 L1070,65 C880,88 680,80 540,72 C400,80 200,84 10,65 Z'/></svg>");
+  background-image: url('/resaltado.svg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   z-index: -1;

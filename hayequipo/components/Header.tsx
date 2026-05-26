@@ -13,9 +13,11 @@ export default function Header() {
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 py-5">
           <Link
             href="/"
-            className="text-xl font-medium tracking-tight hover:opacity-70 transition"
+            className="hover:opacity-70 transition"
+            aria-label="Hay Equipo — inicio"
           >
-            hayequipo<span className="text-he-rojo">.</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="Hay Equipo" height={28} className="h-7 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 text-sm text-he-negro/60">
