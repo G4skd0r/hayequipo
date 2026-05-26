@@ -25,21 +25,23 @@ body {
 /* Resaltado amarillo tipo garabato - SVG inline */
 .he-highlight {
   position: relative;
-  display: inline;
-  padding: 0 4px;
-  white-space: normal;
+  display: inline-block;
+  padding: 0 6px;
   isolation: isolate;
 }
 
 .he-highlight::before {
   content: "";
   position: absolute;
-  inset: 8% -8px -10% -8px;
+  top: -10%;
+  left: -8px;
+  right: -8px;
+  bottom: -18%;
   background-image: url('/resaltado.svg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   z-index: -1;
-  transform: rotate(-1.5deg);
+  transform: rotate(-1deg);
 }
 
 /* Para usar sobre fondo oscuro: fuerza texto negro sobre el amarillo */

@@ -26,7 +26,7 @@ export default function SeccionDonacion() {
 
           {/* Persona */}
           <div className="mb-14">
-            <p className="he-eyebrow text-he-celeste text-xs font-medium tracking-[1.5px] uppercase mb-8">
+            <p className="he-eyebrow text-he-celeste text-sm font-semibold tracking-[1.5px] uppercase mb-8">
               Quiero apoyar siendo una persona
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -60,7 +60,7 @@ export default function SeccionDonacion() {
           {/* Organización */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div>
-              <p className="he-eyebrow text-he-celeste text-xs font-medium tracking-[1.5px] uppercase mb-3">
+              <p className="he-eyebrow text-he-celeste text-sm font-semibold tracking-[1.5px] uppercase mb-3">
                 Quiero apoyar siendo una organización
               </p>
               <p className="text-lg md:text-xl font-medium leading-snug max-w-xl">
@@ -105,7 +105,7 @@ function TierPersona({
       className="flex flex-col items-start text-left group w-full"
     >
       <div
-        className={`${bg} ${textColor} w-full text-center py-8 px-5 rounded-lg mb-4 tracking-widest text-sm font-medium transition-opacity group-hover:opacity-85 ${esLibre ? "" : "text-base"}`}
+        className={`${bg} ${textColor} w-full text-center py-8 px-5 rounded-lg mb-4 tracking-widest text-xl font-bold transition-opacity group-hover:opacity-85`}
       >
         {monto}
         {!esLibre && <span className="text-xs font-normal tracking-wide block mt-1 opacity-75">POR MES</span>}

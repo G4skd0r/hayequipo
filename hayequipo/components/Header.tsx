@@ -27,7 +27,7 @@ export default function Header() {
             <Link href="/sumate" className="hover:text-he-negro transition">
               Sumate
             </Link>
-            <Link href="#donar" className="hover:text-he-negro transition">
+            <Link href="/#donar" className="hover:text-he-negro transition">
               Apoyar
             </Link>
           </nav>

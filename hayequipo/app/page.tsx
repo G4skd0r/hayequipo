@@ -28,7 +28,7 @@ export default function HomePage() {
             <span className="he-highlight text-he-negro">
               1.000 espacios de poder
             </span>{" "}
-            liderados por una nueva generación de líderes argentinos.
+            liderados por una nueva generación de argentinos.
           </h1>
 
           <p className="text-lg md:text-xl text-he-negro/65 leading-relaxed max-w-2xl mb-9">
