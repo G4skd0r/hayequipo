@@ -76,7 +76,7 @@ export default function FormularioSumate() {
 
   if (enviado) {
     return (
-      <div className="bg-he-blanco text-he-negro p-8 md:p-10 rounded-lg">
+      <div className="border border-he-negro/15 text-he-negro p-8 md:p-10 rounded-lg">
         <h2 className="text-2xl md:text-3xl font-medium mb-4">
           <span className="he-highlight">Gracias por sumarte.</span>
         </h2>
@@ -119,7 +119,7 @@ export default function FormularioSumate() {
         <div>
           <label
             htmlFor="provincia"
-            className="block text-xs uppercase tracking-widest text-he-blanco/60 mb-2"
+            className="block text-xs uppercase tracking-widest text-he-negro/55 mb-2"
           >
             Provincia *
           </label>
@@ -129,13 +129,13 @@ export default function FormularioSumate() {
             required
             value={formData.provincia}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-blanco"
+            className="w-full px-4 py-3 bg-he-negro/5 border border-he-negro/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-negro"
           >
-            <option value="" className="bg-he-negro">
+            <option value="">
               Seleccioná una provincia
             </option>
             {PROVINCIAS.map((p) => (
-              <option key={p} value={p} className="bg-he-negro">
+              <option key={p} value={p}>
                 {p}
               </option>
             ))}
@@ -146,7 +146,7 @@ export default function FormularioSumate() {
       <div>
         <label
           htmlFor="mensaje"
-          className="block text-xs uppercase tracking-widest text-he-blanco/60 mb-2"
+          className="block text-xs uppercase tracking-widest text-he-negro/55 mb-2"
         >
           Contanos brevemente sobre vos
         </label>
@@ -157,7 +157,7 @@ export default function FormularioSumate() {
           value={formData.mensaje}
           onChange={handleChange}
           placeholder="A qué te dedicás, qué te interesa de HE, por qué querés sumarte..."
-          className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-blanco placeholder:text-he-blanco/40 resize-none"
+          className="w-full px-4 py-3 bg-he-negro/5 border border-he-negro/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-negro placeholder:text-he-negro/40 resize-none"
         />
       </div>
 
@@ -197,7 +197,7 @@ function Campo({
     <div>
       <label
         htmlFor={name}
-        className="block text-xs uppercase tracking-widest text-he-blanco/60 mb-2"
+        className="block text-xs uppercase tracking-widest text-he-negro/55 mb-2"
       >
         {label} {required && "*"}
       </label>
@@ -208,7 +208,7 @@ function Campo({
         required={required}
         value={value}
         onChange={onChange}
-        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-blanco placeholder:text-he-blanco/40"
+        className="w-full px-4 py-3 bg-he-negro/5 border border-he-negro/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-negro placeholder:text-he-negro/40"
       />
     </div>
   );

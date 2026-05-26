@@ -68,7 +68,7 @@ export default function DonacionModal({ open, onClose }: DonacionModalProps) {
             </svg>
           </button>
 
-          <div className="text-xs uppercase tracking-widest text-he-rojo font-medium mb-4">
+          <div className="text-xs uppercase tracking-widest text-he-negro/55 font-medium mb-4">
             Próximamente
           </div>
 
@@ -89,7 +89,7 @@ export default function DonacionModal({ open, onClose }: DonacionModalProps) {
             Mientras tanto, si querés ser parte del proyecto de otra forma,{" "}
             <a
               href="/sumate"
-              className="text-he-rojo hover:underline font-medium"
+              className="text-he-negro font-semibold underline underline-offset-2 hover:opacity-70 transition"
             >
               dejanos tus datos
             </a>{" "}

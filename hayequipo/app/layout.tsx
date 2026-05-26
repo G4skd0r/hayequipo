@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={dmSans.variable}>
-      <body className="bg-he-negro text-he-blanco">{children}</body>
+      <body className="bg-he-blanco text-he-negro">{children}</body>
     </html>
   );
 }

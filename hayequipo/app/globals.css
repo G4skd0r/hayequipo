@@ -15,8 +15,8 @@ html {
 }
 
 body {
-  background: var(--he-negro);
-  color: var(--he-blanco);
+  background: var(--he-blanco);
+  color: var(--he-negro);
   font-family: var(--font-dm-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,19 +33,15 @@ body {
 .he-highlight::before {
   content: "";
   position: absolute;
-  inset: 12% -4px 8% -4px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 311' preserveAspectRatio='none'><path fill='%23FFBE00' d='M20 155 Q 100 20 280 80 T 620 120 Q 850 60 1060 150 Q 1050 260 850 230 T 480 260 Q 180 290 30 220 Q 10 180 20 155Z'/></svg>");
+  inset: 8% -8px -10% -8px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 96' preserveAspectRatio='none'><path fill='%23FFBE00' d='M10,32 C200,8 400,16 540,24 C680,12 880,8 1070,30 L1070,65 C880,88 680,80 540,72 C400,80 200,84 10,65 Z'/></svg>");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   z-index: -1;
-  transform: rotate(-1deg);
+  transform: rotate(-1.5deg);
 }
 
-/* Variante en dark background */
-.he-highlight-dark::before {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 311' preserveAspectRatio='none'><path fill='%23FFBE00' d='M20 155 Q 100 20 280 80 T 620 120 Q 850 60 1060 150 Q 1050 260 850 230 T 480 260 Q 180 290 30 220 Q 10 180 20 155Z'/></svg>");
-}
-
+/* Para usar sobre fondo oscuro: fuerza texto negro sobre el amarillo */
 .he-highlight.he-highlight-dark {
   color: var(--he-negro);
 }
@@ -61,14 +57,14 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--he-negro);
+  background: var(--he-blanco);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(242, 237, 235, 0.2);
+  background: rgba(22, 22, 22, 0.15);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(242, 237, 235, 0.3);
+  background: rgba(22, 22, 22, 0.25);
 }
 
 /* Modal backdrop */

@@ -11,11 +11,11 @@ export default function SeccionDonacion() {
     <>
       <section
         id="donar"
-        className="bg-he-blanco text-he-negro relative overflow-hidden"
+        className="bg-he-negro text-he-blanco relative overflow-hidden"
       >
         <Sun
           className="absolute -bottom-40 -left-28 w-[380px] h-[380px] opacity-[0.04] pointer-events-none"
-          color="#161616"
+          color="#F2EDEB"
           strokeWidth={4}
           spin
         />
@@ -35,16 +35,16 @@ export default function SeccionDonacion() {
             </svg>
           </h2>
 
-          <p className="text-base md:text-lg text-he-negro/70 leading-relaxed max-w-2xl mb-12">
+          <p className="text-base md:text-lg text-he-blanco/75 leading-relaxed max-w-2xl mb-12">
             Hacer política de otra manera tiene un costo real: producir
             contenido, organizar encuentros, sostener una comunidad. Todo eso
             es posible con el apoyo de los que creen en el proyecto.{" "}
-            <span className="he-highlight font-medium">
+            <span className="he-highlight he-highlight-dark font-medium">
               Si podés y querés, elegí el nivel que más te cierre y sumate.
             </span>
           </p>
 
-          <div className="h-px bg-he-negro/15 mb-12" />
+          <div className="h-px bg-he-blanco/15 mb-12" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
             <Tier
@@ -68,7 +68,7 @@ export default function SeccionDonacion() {
             >
               Próximamente
             </button>
-            <p className="text-sm text-he-negro/60">
+            <p className="text-sm text-he-blanco/55">
               Estamos preparando todo para abrir la Red de Apoyo. Pronto.
             </p>
           </div>
@@ -83,11 +83,11 @@ export default function SeccionDonacion() {
 function Tier({ monto, frase }: { monto: string; frase: string }) {
   return (
     <div className="flex flex-col items-start">
-      <div className="bg-he-negro text-he-blanco w-full text-center py-6 px-5 rounded-lg mb-5 tracking-widest text-sm font-medium">
+      <div className="bg-he-blanco text-he-negro w-full text-center py-6 px-5 rounded-lg mb-5 tracking-widest text-sm font-medium">
         {monto} POR MES
       </div>
       <p className="text-lg md:text-xl font-medium leading-snug">
-        <span className="he-highlight">{frase}</span>
+        <span className="he-highlight he-highlight-dark">{frase}</span>
       </p>
     </div>
   );

@@ -17,7 +17,7 @@ export default function SumatePage() {
       <section className="relative overflow-hidden">
         <Sun
           className="absolute -top-16 -right-32 w-[400px] h-[400px] opacity-[0.05] pointer-events-none"
-          color="#F2EDEB"
+          color="#161616"
           strokeWidth={3}
           spin
         />
@@ -31,14 +31,14 @@ export default function SumatePage() {
             <span className="he-highlight text-he-negro">vocación pública</span>
             , Hay Equipo puede ser tu lugar.
           </h1>
-          <p className="text-lg md:text-xl text-he-blanco/75 leading-relaxed max-w-2xl">
+          <p className="text-lg md:text-xl text-he-negro/65 leading-relaxed max-w-2xl">
             Contanos un poco de vos. Nos ponemos en contacto para conocerte
             mejor y entender si hay un encuentro posible con la red.
           </p>
         </div>
       </section>
 
-      <section className="border-t border-white/10">
+      <section className="border-t border-he-negro/10">
         <div className="max-w-2xl mx-auto px-6 md:px-10 py-16 md:py-20">
           <FormularioSumate />
         </div>
