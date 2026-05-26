@@ -29,7 +29,7 @@ export default function SeccionDonacion() {
             <p className="he-eyebrow text-he-celeste text-sm font-semibold tracking-[1.5px] uppercase mb-8">
               Quiero apoyar siendo una persona
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 items-start">
               <TierPersona
                 monto="$ 7.500"
                 frase="Para que no falte el café en las reuniones."
@@ -51,6 +51,7 @@ export default function SeccionDonacion() {
                 textColor="text-white"
                 onClick={() => setModalOpen(true)}
                 esLibre
+                className="col-span-2 md:col-span-1"
               />
             </div>
           </div>
@@ -91,6 +92,7 @@ function TierPersona({
   textColor,
   onClick,
   esLibre = false,
+  className = "",
 }: {
   monto: string;
   frase: string;
@@ -98,14 +100,15 @@ function TierPersona({
   textColor: string;
   onClick: () => void;
   esLibre?: boolean;
+  className?: string;
 }) {
   return (
     <button
       onClick={onClick}
-      className="flex flex-col items-start text-left group w-full"
+      className={`flex flex-col items-start text-left group w-full h-full ${className}`}
     >
       <div
-        className={`${bg} ${textColor} w-full text-center py-8 px-5 rounded-lg mb-4 tracking-widest text-xl font-bold transition-opacity group-hover:opacity-85`}
+        className={`${bg} ${textColor} w-full flex-1 flex flex-col items-center justify-center text-center py-8 px-5 rounded-lg mb-4 tracking-widest text-xl font-bold transition-opacity group-hover:opacity-85 min-h-[120px]`}
       >
         {monto}
         {!esLibre && <span className="text-xs font-normal tracking-wide block mt-1 opacity-75">POR MES</span>}
