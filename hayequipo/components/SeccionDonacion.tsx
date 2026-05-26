@@ -2,76 +2,80 @@
 
 import { useState } from "react";
 import DonacionModal from "./DonacionModal";
-import Sun from "./Sun";
 
 export default function SeccionDonacion() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <>
-      <section
-        id="donar"
-        className="bg-he-negro text-he-blanco relative overflow-hidden"
-      >
-        <Sun
-          className="absolute -bottom-40 -left-28 w-[380px] h-[380px] opacity-[0.04] pointer-events-none"
-          color="#F2EDEB"
-          strokeWidth={4}
-          spin
-        />
+      <section id="donar" className="bg-he-blanco text-he-negro relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 md:px-10 py-20 md:py-28">
 
-        <div className="max-w-6xl mx-auto px-6 md:px-10 py-20 md:py-28 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight mb-5 flex items-center gap-3 flex-wrap">
-            Sumate a la Red de Apoyo
-            <svg
-              width="36"
-              height="36"
-              viewBox="0 0 24 24"
-              fill="#23A1D5"
-              aria-hidden="true"
-              className="flex-shrink-0"
-            >
-              <path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" />
-            </svg>
+          <h2 className="text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight mb-5">
+            Ayudanos a transformar Argentina 🇦🇷
           </h2>
 
-          <p className="text-base md:text-lg text-he-blanco/75 leading-relaxed max-w-2xl mb-12">
+          <p className="text-base md:text-lg text-he-negro/70 leading-relaxed max-w-2xl mb-14">
             Hacer política de otra manera tiene un costo real: producir
             contenido, organizar encuentros, sostener una comunidad. Todo eso
             es posible con el apoyo de los que creen en el proyecto.{" "}
-            <span className="he-highlight he-highlight-dark font-medium">
+            <span className="he-highlight font-medium">
               Si podés y querés, elegí el nivel que más te cierre y sumate.
             </span>
           </p>
 
-          <div className="h-px bg-he-blanco/15 mb-12" />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
-            <Tier
-              monto="$5.000"
-              frase="Para que no falte el café de las reuniones."
-            />
-            <Tier
-              monto="$10.000"
-              frase="Para que las ideas lleguen más lejos."
-            />
-            <Tier
-              monto="$20.000"
-              frase="Para que formemos más líderes."
-            />
+          {/* Persona */}
+          <div className="mb-14">
+            <p className="he-eyebrow text-he-celeste text-xs font-medium tracking-[1.5px] uppercase mb-8">
+              Quiero apoyar siendo una persona
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <TierPersona
+                monto="$ 7.500"
+                frase="Para que no falte el café en las reuniones."
+                bg="bg-he-rojo"
+                textColor="text-white"
+                onClick={() => setModalOpen(true)}
+              />
+              <TierPersona
+                monto="$ 20.000"
+                frase="Para que las ideas lleguen más lejos."
+                bg="bg-he-amarillo"
+                textColor="text-he-negro"
+                onClick={() => setModalOpen(true)}
+              />
+              <TierPersona
+                monto="TU MONTO IDEAL"
+                frase="Para que formemos más personas."
+                bg="bg-he-celeste"
+                textColor="text-white"
+                onClick={() => setModalOpen(true)}
+                esLibre
+              />
+            </div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+          <div className="h-px bg-he-negro/10 mb-14" />
+
+          {/* Organización */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            <div>
+              <p className="he-eyebrow text-he-celeste text-xs font-medium tracking-[1.5px] uppercase mb-3">
+                Quiero apoyar siendo una organización
+              </p>
+              <p className="text-lg md:text-xl font-medium leading-snug max-w-xl">
+                Si representás una empresa o institución y querés ser parte,
+                hablemos y encontramos el formato ideal.
+              </p>
+            </div>
             <button
               onClick={() => setModalOpen(true)}
-              className="bg-he-rojo hover:bg-he-rojo-light transition-colors text-white px-8 py-4 rounded text-base font-medium w-full md:w-auto"
+              className="bg-he-negro hover:bg-he-negro/85 transition-colors text-he-blanco px-8 py-4 rounded text-base font-medium whitespace-nowrap flex-shrink-0"
             >
-              Próximamente
+              Charlemos
             </button>
-            <p className="text-sm text-he-blanco/55">
-              Estamos preparando todo para abrir la Red de Apoyo. Pronto.
-            </p>
           </div>
+
         </div>
       </section>
 
@@ -80,15 +84,33 @@ export default function SeccionDonacion() {
   );
 }
 
-function Tier({ monto, frase }: { monto: string; frase: string }) {
+function TierPersona({
+  monto,
+  frase,
+  bg,
+  textColor,
+  onClick,
+  esLibre = false,
+}: {
+  monto: string;
+  frase: string;
+  bg: string;
+  textColor: string;
+  onClick: () => void;
+  esLibre?: boolean;
+}) {
   return (
-    <div className="flex flex-col items-start">
-      <div className="bg-he-blanco text-he-negro w-full text-center py-6 px-5 rounded-lg mb-5 tracking-widest text-sm font-medium">
-        {monto} POR MES
+    <button
+      onClick={onClick}
+      className="flex flex-col items-start text-left group w-full"
+    >
+      <div
+        className={`${bg} ${textColor} w-full text-center py-8 px-5 rounded-lg mb-4 tracking-widest text-sm font-medium transition-opacity group-hover:opacity-85 ${esLibre ? "" : "text-base"}`}
+      >
+        {monto}
+        {!esLibre && <span className="text-xs font-normal tracking-wide block mt-1 opacity-75">POR MES</span>}
       </div>
-      <p className="text-lg md:text-xl font-medium leading-snug">
-        <span className="he-highlight he-highlight-dark">{frase}</span>
-      </p>
-    </div>
+      <p className="text-base text-he-negro/75 leading-snug px-1">{frase}</p>
+    </button>
   );
 }

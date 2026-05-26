@@ -28,6 +28,7 @@ body {
   display: inline;
   padding: 0 4px;
   white-space: normal;
+  isolation: isolate;
 }
 
 .he-highlight::before {
