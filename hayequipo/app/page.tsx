@@ -51,6 +51,12 @@ export default function HomePage() {
             >
               Conocer más
             </Link>
+            <Link
+              href="/sumate"
+              className="bg-he-celeste hover:opacity-85 transition text-white px-7 py-4 rounded text-base font-medium text-center sm:hidden"
+            >
+              Sumarme como miembro
+            </Link>
           </div>
         </div>
       </section>
