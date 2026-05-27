@@ -91,7 +91,6 @@ function TierPersona({
   textColor,
   onClick,
   esLibre = false,
-  className = "",
 }: {
   monto: string;
   frase: string;
