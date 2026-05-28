@@ -11,16 +11,22 @@ export default function SeccionDonacion() {
       <section id="donar" className="bg-he-blanco text-he-negro relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 md:px-10 py-20 md:py-28">
 
-          <h2 className="text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight mb-5">
-            Ayudanos a transformar Argentina 🇦🇷
+          <h2 className="text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight mb-5 flex items-center gap-3">
+            Ayudanos a transformar Argentina{" "}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e6-1f1f7.svg"
+              alt="🇦🇷"
+              className="inline-block w-10 h-10 align-middle"
+            />
           </h2>
 
           <p className="text-base md:text-lg text-he-negro/70 leading-relaxed max-w-2xl mb-14">
-            Hacer política de otra manera tiene un costo real: producir
-            contenido, organizar encuentros, sostener una comunidad. Todo eso
-            es posible con el apoyo de los que creen en el proyecto.{" "}
+            Hacerlo tiene un costo real: producir contenido, organizar
+            encuentros, sostener una comunidad. Todo eso es posible con el
+            apoyo de los que creen en el proyecto.{" "}
             <span className="he-highlight font-medium">
-              Si podés y querés, elegí el nivel que más te cierre y sumate.
+              Elegí el nivel que más te cierre y sumate.
             </span>
           </p>
 

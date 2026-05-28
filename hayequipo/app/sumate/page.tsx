@@ -32,8 +32,8 @@ export default function SumatePage() {
             , Hay Equipo puede ser tu lugar.
           </h1>
           <p className="text-lg md:text-xl text-he-negro/65 leading-relaxed max-w-2xl">
-            Contanos un poco de vos. Nos ponemos en contacto para conocerte
-            mejor y entender si hay un encuentro posible con la red.
+            Contanos un poco de vos. Nosotros nos ponemos en contacto para
+            conocerte mejor y contarte el proceso de incorporación.
           </p>
         </div>
       </section>
