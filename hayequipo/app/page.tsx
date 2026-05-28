@@ -39,7 +39,7 @@ export default function HomePage() {
             poder.{" "}
             <Link
               href="/nosotros"
-              className="hidden sm:inline ml-8 text-he-negro/50 hover:text-he-negro underline underline-offset-4 transition"
+              className="hidden sm:inline ml-8 text-sm text-he-celeste hover:text-he-celeste/70 underline underline-offset-4 transition"
             >
               Conocer más
             </Link>
