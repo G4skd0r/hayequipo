@@ -59,7 +59,7 @@ export default function ManifiestoTeaser() {
           {/* Celeste outer frame */}
           <div className="absolute inset-0 bg-he-celeste rotate-[-2deg] rounded-sm" />
           {/* Inner white panel */}
-          <div className="relative bg-he-blanco rotate-[1.5deg] mx-7 my-7 py-24 md:py-32 flex flex-col items-center justify-center gap-4 rounded-sm">
+          <div className="relative bg-he-blanco rotate-[1.5deg] mx-14 my-14 py-24 md:py-32 flex flex-col items-center justify-center gap-4 rounded-sm">
             <h2
               style={{ fontFamily }}
               className="text-3xl md:text-4xl font-medium text-he-negro text-center px-8"
