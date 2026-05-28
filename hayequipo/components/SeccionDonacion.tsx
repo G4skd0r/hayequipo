@@ -38,7 +38,7 @@ export default function SeccionDonacion() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <TierPersona
                 monto="$ 7.500"
-                frase="Para que no falte el café en las reuniones."
+                frase="Para que sigamos construyendo desde abajo."
                 bg="bg-he-rojo"
                 textColor="text-white"
                 onClick={() => setModalOpen(true)}

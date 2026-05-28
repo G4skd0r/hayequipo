@@ -31,14 +31,21 @@ export default function HomePage() {
             liderados por una nueva generación de argentinos.
           </h1>
 
-          <p className="text-lg md:text-xl text-he-negro/65 leading-relaxed max-w-2xl mb-9">
+          <p className="text-lg md:text-xl text-he-negro/65 leading-relaxed max-w-2xl">
             Detectamos, formamos y potenciamos a jóvenes líderes con vocación
             pública para ocupar espacios de transformación real. Somos una red.
             Somos una identidad compartida. Somos el cambio del paradigma de
-            poder.
+            poder.{" "}
+            <Link
+              href="/nosotros"
+              className="hidden sm:inline text-he-negro/50 hover:text-he-negro underline underline-offset-4 transition"
+            >
+              Conocer más →
+            </Link>
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          {/* Mobile only: botones */}
+          <div className="flex flex-col gap-3 mt-8 sm:hidden">
             <Link
               href="#donar"
               className="bg-he-rojo hover:bg-he-rojo-light transition-colors text-white px-7 py-4 rounded text-base font-medium text-center"
@@ -53,7 +60,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/sumate"
-              className="bg-he-celeste hover:opacity-85 transition text-white px-7 py-4 rounded text-base font-medium text-center sm:hidden"
+              className="bg-he-celeste hover:opacity-85 transition text-white px-7 py-4 rounded text-base font-medium text-center"
             >
               Sumarme como miembro
             </Link>
