@@ -21,6 +21,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
         display: ["var(--font-pangram)", "var(--font-dm-sans)", "sans-serif"],
+        anon: ["var(--font-anonymous-pro)", "monospace"],
       },
       animation: {
         "spin-slow": "spin 60s linear infinite",

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SeccionDonacion from "@/components/SeccionDonacion";
 import Sun from "@/components/Sun";
+import ManifiestoTeaser from "@/components/ManifiestoTeaser";
 
 export default function HomePage() {
   return (
@@ -68,46 +69,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* STATS / 4 EJES BREVE */}
-      <section className="border-t border-he-negro/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6">
-            <Pilar
-              titulo="Autoconocimiento"
-              desc="Estrategia de posicionamiento personal de cada líder."
-            />
-            <Pilar
-              titulo="Habilidades"
-              desc="Desarrollo personal, planificación estratégica y comunicación."
-            />
-            <Pilar
-              titulo="Vinculación"
-              desc="Red de confianza entre pares y acceso a tomadores de decisión."
-            />
-            <Pilar
-              titulo="Agenda de país"
-              desc="Formación y acceso directo a sectores estratégicos."
-            />
-          </div>
-        </div>
-      </section>
+      {/* MANIFIESTO */}
+      <ManifiestoTeaser />
 
       {/* DONACIÓN */}
       <SeccionDonacion />
 
       <Footer />
     </main>
-  );
-}
-
-function Pilar({ titulo, desc }: { titulo: string; desc: string }) {
-  return (
-    <div>
-      <div className="text-he-rojo text-xs font-medium tracking-[1.5px] uppercase mb-3">
-        &gt;&gt;
-      </div>
-      <h3 className="text-lg font-medium mb-2">{titulo}</h3>
-      <p className="text-sm text-he-negro/60 leading-relaxed">{desc}</p>
-    </div>
   );
 }

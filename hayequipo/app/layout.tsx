@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, Anonymous_Pro } from "next/font/google";
 import "./globals.css";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const anonymousPro = Anonymous_Pro({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-anonymous-pro",
   display: "swap",
 });
 
@@ -28,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={dmSans.variable}>
+    <html lang="es" className={`${dmSans.variable} ${anonymousPro.variable}`}>
       <body className="bg-he-blanco text-he-negro">{children}</body>
     </html>
   );
