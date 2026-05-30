@@ -55,11 +55,11 @@ export default function ManifiestoTeaser() {
   return (
     <section ref={ref} className="py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="relative max-w-3xl mx-auto">
-          {/* Celeste outer frame */}
-          <div className="absolute inset-0 border-[20px] border-he-celeste rotate-[-2deg]" />
-          {/* Inner white panel */}
-          <div className="relative bg-he-blanco rotate-[1.5deg] m-7 py-32 md:py-44 flex flex-col items-center justify-center gap-4">
+        <div className="relative max-w-3xl mx-auto overflow-hidden">
+          {/* Celeste solid block — solo esto va torcido */}
+          <div className="absolute inset-0 bg-he-celeste rotate-[-2deg] scale-110" />
+          {/* Inner white panel — derecho */}
+          <div className="relative bg-he-blanco mx-10 my-16 py-36 md:py-52 flex flex-col items-center justify-center gap-4">
             <h2
               style={{ fontFamily }}
               className="text-3xl md:text-4xl font-medium text-he-negro text-center px-8"
