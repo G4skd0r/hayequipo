@@ -7,12 +7,11 @@ const FONT_CYCLE = [
   "'Courier New', Courier, monospace",
   "Impact, 'Arial Black', sans-serif",
   "Georgia, serif",
-  "'Courier New', monospace",
   "Palatino, 'Palatino Linotype', serif",
   "'Courier New', monospace",
   "Georgia, 'Times New Roman', serif",
   "Impact, fantasy",
-  "var(--font-dm-sans), system-ui, sans-serif", // final
+  "var(--font-anonymous-pro), monospace", // final
 ];
 
 export default function ManifiestoTeaser() {
@@ -21,7 +20,6 @@ export default function ManifiestoTeaser() {
   const [settled, setSettled] = useState(false);
   const [triggered, setTriggered] = useState(false);
 
-  // Trigger animation when section enters viewport
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -33,7 +31,6 @@ export default function ManifiestoTeaser() {
     return () => observer.disconnect();
   }, []);
 
-  // Font cycling animation
   useEffect(() => {
     if (!triggered || settled) return;
     let count = 0;
@@ -45,8 +42,7 @@ export default function ManifiestoTeaser() {
         setFontFamily(FONT_CYCLE[FONT_CYCLE.length - 1]);
         setSettled(true);
       } else {
-        const randomIndex = Math.floor(Math.random() * (FONT_CYCLE.length - 1));
-        setFontFamily(FONT_CYCLE[randomIndex]);
+        setFontFamily(FONT_CYCLE[Math.floor(Math.random() * (FONT_CYCLE.length - 1))]);
       }
     }, 110);
     return () => clearInterval(interval);
@@ -54,22 +50,17 @@ export default function ManifiestoTeaser() {
 
   return (
     <section ref={ref} className="py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="relative max-w-3xl mx-auto overflow-hidden">
-          {/* Celeste solid block — solo esto va torcido */}
-          <div className="absolute inset-0 bg-he-celeste rotate-[-2deg] scale-110" />
-          {/* Inner white panel — derecho */}
-          <div className="relative bg-he-blanco mx-10 my-16 py-36 md:py-52 flex flex-col items-center justify-center gap-4">
-            <h2
-              style={{ fontFamily }}
-              className="text-3xl md:text-4xl font-medium text-he-negro text-center px-8"
-            >
-              Nuestro manifiesto
-            </h2>
-            <p className="font-anon text-sm text-he-negro/45 tracking-wide">
-              próximamente
-            </p>
-          </div>
+      <div className="max-w-5xl mx-auto px-6 md:px-10">
+        <div className="bg-he-negro aspect-video flex flex-col items-center justify-center gap-5">
+          <p className="text-he-blanco/35 text-xs font-medium tracking-[2px] uppercase">
+            Nuestro manifiesto
+          </p>
+          <h2
+            style={{ fontFamily }}
+            className="text-4xl md:text-6xl font-medium text-he-blanco text-center px-8"
+          >
+            próximamente
+          </h2>
         </div>
       </div>
     </section>
