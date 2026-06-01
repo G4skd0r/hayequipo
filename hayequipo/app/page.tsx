@@ -25,11 +25,11 @@ export default function HomePage() {
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-[64px] font-medium leading-[1.02] tracking-tight max-w-5xl mb-7">
-            Para 2030, ocupar{" "}
+            Una nueva generación ocupando{" "}
             <span className="he-highlight text-he-negro">
-              1.000 espacios de poder
+              espacios de poder
             </span>{" "}
-            liderados por una nueva generación de argentinos.
+            para transformar Argentina.
           </h1>
 
           <p className="text-lg md:text-xl text-he-negro/65 leading-relaxed max-w-2xl">
