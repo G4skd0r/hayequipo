@@ -81,8 +81,8 @@ export default function FormularioSumate() {
           <span className="he-highlight">Gracias por sumarte.</span>
         </h2>
         <p className="text-base text-he-negro/70 leading-relaxed">
-          Recibimos tu mensaje. Nos vamos a poner en contacto con vos a la
-          brevedad para conocerte mejor.
+          Nos vamos a poner en contacto con vos para conocerte mejor. Tené en
+          cuenta que puede demorar un poco.
         </p>
       </div>
     );

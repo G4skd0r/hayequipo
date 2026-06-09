@@ -35,6 +35,10 @@ export default function SumatePage() {
             Contanos un poco de vos. Nosotros nos ponemos en contacto para
             conocerte mejor y contarte el proceso de incorporación.
           </p>
+          <p className="text-base text-he-negro/50 leading-relaxed max-w-2xl mt-4">
+            También nos parece importante contarte que los miembros pagan una
+            cuota mensual para ser parte.
+          </p>
         </div>
       </section>
 

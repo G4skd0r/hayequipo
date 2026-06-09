@@ -53,10 +53,11 @@ export default function NosotrosPage() {
                 nuestro país.
               </p>
               <p>
-                Hay Equipo detecta, acompaña y conecta a jóvenes líderes del
-                sector público y privado, dotándolos de herramientas de
-                liderazgo, una identidad compartida y una red de confianza para
-                ocupar espacios de transformación real.
+                Hay Equipo es una Organización de la Sociedad Civil que detecta,
+                acompaña y conecta a jóvenes líderes del sector público y
+                privado, dotándolos de herramientas de liderazgo, una identidad
+                compartida y una red de confianza para ocupar espacios de
+                transformación real.
               </p>
             </div>
           </div>
