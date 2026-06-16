@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Anonymous_Pro } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -36,7 +37,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${dmSans.variable} ${anonymousPro.variable}`}>
-      <body className="bg-he-blanco text-he-negro">{children}</body>
+      <body className="bg-he-blanco text-he-negro">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
