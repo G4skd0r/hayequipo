@@ -41,7 +41,7 @@ export default function HomePage() {
               href="/nosotros"
               className="hidden sm:inline ml-8 text-sm text-he-celeste hover:text-he-celeste/70 underline underline-offset-4 transition"
             >
-              Conocer más
+              Quiénes somos
             </Link>
           </p>
 
@@ -57,13 +57,13 @@ export default function HomePage() {
               href="/nosotros"
               className="border border-he-negro/30 hover:bg-he-negro/5 transition text-he-negro px-7 py-4 rounded text-base font-medium text-center"
             >
-              Conocer más
+              Quiénes somos
             </Link>
             <Link
               href="/sumate"
               className="bg-he-celeste hover:opacity-85 transition text-white px-7 py-4 rounded text-base font-medium text-center"
             >
-              Sumarme como miembro
+              Quiero saber más
             </Link>
           </div>
         </div>

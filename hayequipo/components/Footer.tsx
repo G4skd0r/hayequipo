@@ -36,7 +36,7 @@ export default function Footer() {
                   href="/sumate"
                   className="text-he-blanco/70 hover:text-he-blanco transition"
                 >
-                  Sumate
+                  Conocé más
                 </Link>
               </li>
               <li>

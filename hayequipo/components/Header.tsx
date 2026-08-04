@@ -25,7 +25,7 @@ export default function Header() {
               Nosotros
             </Link>
             <Link href="/sumate" className="hover:text-he-negro transition">
-              Sumate
+              Conocé más
             </Link>
             <Link href="/#donar" className="hover:text-he-negro transition">
               Apoyar

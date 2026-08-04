@@ -29,12 +29,17 @@ const PROVINCIAS = [
   "Tucumán",
 ];
 
+// Para lugar de nacimiento sumamos exterior: hay gente que nació fuera del país.
+const PROVINCIAS_NACIMIENTO = [...PROVINCIAS, "Fuera de Argentina"];
+
 export default function FormularioSumate() {
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
+    edad: "",
     localidad: "",
     provincia: "",
+    provinciaNacimiento: "",
     mensaje: "",
   });
   const [enviando, setEnviando] = useState(false);
@@ -78,11 +83,12 @@ export default function FormularioSumate() {
     return (
       <div className="border border-he-negro/15 text-he-negro p-8 md:p-10 rounded-lg">
         <h2 className="text-2xl md:text-3xl font-medium mb-4">
-          <span className="he-highlight">Gracias por sumarte.</span>
+          <span className="he-highlight">Gracias por escribirnos.</span>
         </h2>
         <p className="text-base text-he-negro/70 leading-relaxed">
-          Nos vamos a poner en contacto con vos para conocerte mejor. Tené en
-          cuenta que puede demorar un poco.
+          Ya tenemos tus datos. Nos vamos a poner en contacto con vos para
+          contarte más y conocerte mejor. Tené en cuenta que puede demorar un
+          poco.
         </p>
       </div>
     );
@@ -109,38 +115,42 @@ export default function FormularioSumate() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Campo
-          label="Localidad"
+          label="Edad"
+          name="edad"
+          type="number"
+          inputMode="numeric"
+          min={14}
+          max={99}
+          required
+          value={formData.edad}
+          onChange={handleChange}
+        />
+
+        <Campo
+          label="Localidad donde vivís"
           name="localidad"
           required
           value={formData.localidad}
           onChange={handleChange}
         />
+      </div>
 
-        <div>
-          <label
-            htmlFor="provincia"
-            className="block text-xs uppercase tracking-widest text-he-negro/55 mb-2"
-          >
-            Provincia *
-          </label>
-          <select
-            id="provincia"
-            name="provincia"
-            required
-            value={formData.provincia}
-            onChange={handleChange}
-            className="w-full px-4 py-3 bg-he-negro/5 border border-he-negro/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-negro"
-          >
-            <option value="">
-              Seleccioná una provincia
-            </option>
-            {PROVINCIAS.map((p) => (
-              <option key={p} value={p}>
-                {p}
-              </option>
-            ))}
-          </select>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <CampoProvincia
+          label="Provincia de residencia"
+          name="provincia"
+          opciones={PROVINCIAS}
+          value={formData.provincia}
+          onChange={handleChange}
+        />
+
+        <CampoProvincia
+          label="Provincia de nacimiento"
+          name="provinciaNacimiento"
+          opciones={PROVINCIAS_NACIMIENTO}
+          value={formData.provinciaNacimiento}
+          onChange={handleChange}
+        />
       </div>
 
       <div>
@@ -156,7 +166,7 @@ export default function FormularioSumate() {
           rows={5}
           value={formData.mensaje}
           onChange={handleChange}
-          placeholder="A qué te dedicás, qué te interesa de HE, por qué querés sumarte..."
+          placeholder="A qué te dedicás, qué te interesa de Hay Equipo, qué te gustaría saber..."
           className="w-full px-4 py-3 bg-he-negro/5 border border-he-negro/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-negro placeholder:text-he-negro/40 resize-none"
         />
       </div>
@@ -172,11 +182,14 @@ export default function FormularioSumate() {
         disabled={enviando}
         className="bg-he-rojo hover:bg-he-rojo-light disabled:opacity-60 disabled:cursor-not-allowed text-white px-8 py-4 rounded text-base font-medium transition-colors w-full md:w-auto"
       >
-        {enviando ? "Enviando..." : "Quiero ser parte"}
+        {enviando ? "Enviando..." : "Dejar mi contacto"}
       </button>
     </form>
   );
 }
+
+const INPUT_CLASS =
+  "w-full px-4 py-3 bg-he-negro/5 border border-he-negro/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-negro placeholder:text-he-negro/40";
 
 function Campo({
   label,
@@ -185,6 +198,9 @@ function Campo({
   required = false,
   value,
   onChange,
+  inputMode,
+  min,
+  max,
 }: {
   label: string;
   name: string;
@@ -192,6 +208,9 @@ function Campo({
   required?: boolean;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  inputMode?: "numeric";
+  min?: number;
+  max?: number;
 }) {
   return (
     <div>
@@ -208,8 +227,51 @@ function Campo({
         required={required}
         value={value}
         onChange={onChange}
-        className="w-full px-4 py-3 bg-he-negro/5 border border-he-negro/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-negro placeholder:text-he-negro/40"
+        inputMode={inputMode}
+        min={min}
+        max={max}
+        className={INPUT_CLASS}
       />
+    </div>
+  );
+}
+
+function CampoProvincia({
+  label,
+  name,
+  opciones,
+  value,
+  onChange,
+}: {
+  label: string;
+  name: string;
+  opciones: string[];
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={name}
+        className="block text-xs uppercase tracking-widest text-he-negro/55 mb-2"
+      >
+        {label} *
+      </label>
+      <select
+        id={name}
+        name={name}
+        required
+        value={value}
+        onChange={onChange}
+        className={INPUT_CLASS}
+      >
+        <option value="">Seleccioná una provincia</option>
+        {opciones.map((p) => (
+          <option key={p} value={p}>
+            {p}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
