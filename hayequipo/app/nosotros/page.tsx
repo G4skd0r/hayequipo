@@ -15,7 +15,10 @@ export default function NosotrosPage() {
       <Header />
 
       {/* HERO INTERIOR */}
-      <section className="relative overflow-hidden border-b border-he-negro/10">
+      <section
+        id="contenido"
+        className="relative overflow-hidden border-b border-he-negro/10"
+      >
         <Sun
           className="absolute -top-10 -right-32 w-[360px] h-[360px] opacity-[0.05] pointer-events-none"
           color="#161616"
@@ -24,10 +27,16 @@ export default function NosotrosPage() {
         />
 
         <div className="max-w-5xl mx-auto px-6 md:px-10 pt-16 md:pt-20 pb-16 md:pb-20 relative z-10">
-          <div className="he-eyebrow text-he-celeste text-xs font-medium tracking-[1.5px] mb-5 uppercase">
+          <div
+            className="he-reveal he-eyebrow text-he-celeste text-xs font-medium tracking-[1.5px] mb-5 uppercase"
+            style={{ "--he-delay": "0ms" } as React.CSSProperties}
+          >
             Nosotros
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.05] tracking-tight max-w-4xl">
+          <h1
+            className="he-reveal he-display text-4xl md:text-5xl lg:text-6xl font-medium max-w-4xl"
+            style={{ "--he-delay": "60ms" } as React.CSSProperties}
+          >
             Creemos que la{" "}
             <span className="he-highlight text-he-negro">
               cultura del poder
@@ -46,7 +55,7 @@ export default function NosotrosPage() {
                 &gt;&gt; Quiénes somos
               </h2>
             </div>
-            <div className="md:col-span-2 space-y-5 text-lg leading-relaxed text-he-negro/80">
+            <div className="he-body md:col-span-2 space-y-5 text-lg leading-relaxed text-he-negro/80">
               <p>
                 Somos una generación de jóvenes argentinos nacidos en
                 democracia, con vocación pública y el sueño de transformar
@@ -73,7 +82,7 @@ export default function NosotrosPage() {
                 &gt;&gt; Nuestra visión
               </h2>
             </div>
-            <div className="md:col-span-2 space-y-5 text-lg leading-relaxed text-he-negro/80">
+            <div className="he-body md:col-span-2 space-y-5 text-lg leading-relaxed text-he-negro/80">
               <p>
                 Imaginamos una Argentina donde los espacios de influencia estén
                 ocupados por ciudadanos íntegros, con conocimiento profundo del
@@ -129,7 +138,7 @@ export default function NosotrosPage() {
           <h2 className="text-xs uppercase tracking-[1.5px] text-he-rojo font-medium mb-6">
             &gt;&gt; Pacto cultural
           </h2>
-          <p className="text-2xl md:text-3xl font-medium leading-snug max-w-3xl">
+          <p className="he-body text-2xl md:text-3xl font-medium leading-snug tracking-[-0.015em] max-w-3xl">
             Confianza · Honestidad · Pluralismo · Democracia · Fraternidad ·
             Trascendencia · Igualitarismo.
           </p>
@@ -158,10 +167,10 @@ function Eje({
       <div className="text-he-celeste text-sm font-medium tracking-widest mb-3">
         {numero}
       </div>
-      <h3 className="text-xl md:text-2xl font-medium mb-3 leading-tight">
+      <h3 className="he-h3 text-xl md:text-2xl font-medium mb-3">
         {titulo}
       </h3>
-      <p className="text-base text-he-negro/65 leading-relaxed">{desc}</p>
+      <p className="he-body text-base text-he-negro/65 leading-relaxed">{desc}</p>
     </div>
   );
 }

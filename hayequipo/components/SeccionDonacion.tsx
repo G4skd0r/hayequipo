@@ -1,27 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import DonacionModal from "./DonacionModal";
 
 export default function SeccionDonacion() {
   const [modalOpen, setModalOpen] = useState(false);
+  // El foco vuelve al control que abrió el modal, no al principio del documento.
+  const triggerRef = useRef<HTMLElement | null>(null);
+
+  const abrir = (e: React.MouseEvent<HTMLElement>) => {
+    triggerRef.current = e.currentTarget;
+    setModalOpen(true);
+  };
 
   return (
     <>
       <section id="donar" className="bg-he-blanco text-he-negro relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 md:px-10 py-20 md:py-28">
 
-          <h2 className="text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight mb-5 flex items-center gap-3">
+          <h2 className="he-h2 text-4xl md:text-5xl font-medium mb-5 flex items-center gap-3">
             Ayudanos a transformar Argentina{" "}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e6-1f1f7.svg"
-              alt="🇦🇷"
-              className="inline-block w-10 h-10 align-middle"
+              src="/bandera-ar.svg"
+              alt=""
+              width={40}
+              height={40}
+              className="inline-block w-10 h-10 align-middle shrink-0"
             />
           </h2>
 
-          <p className="text-base md:text-lg text-he-negro/70 leading-relaxed max-w-2xl mb-14">
+          <p className="he-body text-base md:text-lg text-he-negro/70 leading-relaxed max-w-2xl mb-14">
             Hacerlo tiene un costo real: producir contenido, organizar
             encuentros, sostener una comunidad. Todo eso es posible con el
             apoyo de los que creen en el proyecto.{" "}
@@ -41,21 +50,21 @@ export default function SeccionDonacion() {
                 frase="Para que sigamos construyendo desde abajo."
                 bg="bg-he-rojo"
                 textColor="text-white"
-                onClick={() => setModalOpen(true)}
+                onClick={abrir}
               />
               <TierPersona
                 monto="$ 20.000"
                 frase="Para que las ideas lleguen más lejos."
                 bg="bg-he-amarillo"
                 textColor="text-he-negro"
-                onClick={() => setModalOpen(true)}
+                onClick={abrir}
               />
               <TierPersona
                 monto="TU MONTO IDEAL"
                 frase="Para que formemos más personas."
                 bg="bg-he-celeste"
                 textColor="text-white"
-                onClick={() => setModalOpen(true)}
+                onClick={abrir}
                 esLibre
               />
             </div>
@@ -69,14 +78,14 @@ export default function SeccionDonacion() {
               <p className="he-eyebrow text-he-celeste text-sm font-semibold tracking-[1.5px] uppercase mb-3">
                 Quiero apoyar siendo una organización
               </p>
-              <p className="text-lg md:text-xl font-medium leading-snug max-w-xl">
+              <p className="he-body text-lg md:text-xl font-medium leading-snug max-w-xl">
                 Si representás una empresa o institución y querés ser parte,
                 hablemos y encontramos el formato ideal.
               </p>
             </div>
             <button
-              onClick={() => setModalOpen(true)}
-              className="bg-he-negro hover:bg-he-negro/85 transition-colors text-he-blanco px-8 py-4 rounded text-base font-medium whitespace-nowrap flex-shrink-0"
+              onClick={abrir}
+              className="he-press bg-he-negro hover:bg-he-negro/85 text-he-blanco px-8 py-4 rounded text-base font-medium whitespace-nowrap flex-shrink-0"
             >
               Charlemos
             </button>
@@ -85,7 +94,11 @@ export default function SeccionDonacion() {
         </div>
       </section>
 
-      <DonacionModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <DonacionModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        returnFocusTo={triggerRef}
+      />
     </>
   );
 }
@@ -102,7 +115,7 @@ function TierPersona({
   frase: string;
   bg: string;
   textColor: string;
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   esLibre?: boolean;
 }) {
   return (
@@ -111,12 +124,12 @@ function TierPersona({
       className="flex flex-col items-start text-left group w-full"
     >
       <div
-        className={`${bg} ${textColor} w-full flex flex-col items-center justify-center text-center h-32 px-5 rounded-lg mb-4 tracking-widest text-xl font-bold transition-opacity group-hover:opacity-85`}
+        className={`${bg} ${textColor} he-lift w-full flex flex-col items-center justify-center text-center h-32 px-5 rounded-lg mb-4 tracking-widest text-xl font-bold`}
       >
         {monto}
         {!esLibre && <span className="text-xs font-normal tracking-wide block mt-1 opacity-75">POR MES</span>}
       </div>
-      <p className="text-base text-he-negro/75 leading-snug px-1">{frase}</p>
+      <p className="he-body text-base text-he-negro/75 leading-snug px-1">{frase}</p>
     </button>
   );
 }
