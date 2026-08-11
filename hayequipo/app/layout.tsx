@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans, Anonymous_Pro } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -28,6 +28,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
   },
+};
+
+// La barra del navegador en mobile toma el color del fondo: la página deja de
+// terminar en un borde blanco que no es de nadie.
+export const viewport: Viewport = {
+  themeColor: "#F2EDEB",
+  colorScheme: "light",
 };
 
 export default function RootLayout({

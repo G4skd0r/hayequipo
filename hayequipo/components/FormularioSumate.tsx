@@ -81,11 +81,14 @@ export default function FormularioSumate() {
 
   if (enviado) {
     return (
-      <div className="border border-he-negro/15 text-he-negro p-8 md:p-10 rounded-lg">
-        <h2 className="text-2xl md:text-3xl font-medium mb-4">
+      <div
+        className="he-reveal border border-he-negro/15 text-he-negro p-8 md:p-10 rounded-lg"
+        role="status"
+      >
+        <h2 className="he-h3 text-2xl md:text-3xl font-medium mb-4">
           <span className="he-highlight">Gracias por escribirnos.</span>
         </h2>
-        <p className="text-base text-he-negro/70 leading-relaxed">
+        <p className="he-body text-base text-he-negro/70 leading-relaxed">
           Ya tenemos tus datos. Nos vamos a poner en contacto con vos para
           contarte más y conocerte mejor. Tené en cuenta que puede demorar un
           poco.
@@ -100,6 +103,7 @@ export default function FormularioSumate() {
         label="Nombre y apellido"
         name="nombre"
         required
+        autoComplete="name"
         value={formData.nombre}
         onChange={handleChange}
       />
@@ -109,6 +113,7 @@ export default function FormularioSumate() {
         name="email"
         type="email"
         required
+        autoComplete="email"
         value={formData.email}
         onChange={handleChange}
       />
@@ -130,6 +135,7 @@ export default function FormularioSumate() {
           label="Localidad donde vivís"
           name="localidad"
           required
+          autoComplete="address-level2"
           value={formData.localidad}
           onChange={handleChange}
         />
@@ -139,6 +145,7 @@ export default function FormularioSumate() {
         <CampoProvincia
           label="Provincia de residencia"
           name="provincia"
+          autoComplete="address-level1"
           opciones={PROVINCIAS}
           value={formData.provincia}
           onChange={handleChange}
@@ -167,12 +174,15 @@ export default function FormularioSumate() {
           value={formData.mensaje}
           onChange={handleChange}
           placeholder="A qué te dedicás, qué te interesa de Hay Equipo, qué te gustaría saber..."
-          className="w-full px-4 py-3 bg-he-negro/5 border border-he-negro/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-negro placeholder:text-he-negro/40 resize-none"
+          className="he-field resize-none"
         />
       </div>
 
       {error && (
-        <div className="text-sm text-he-rojo bg-he-rojo/10 px-4 py-3 rounded">
+        <div
+          role="alert"
+          className="he-reveal text-sm text-he-rojo bg-he-rojo/10 px-4 py-3 rounded"
+        >
           {error}
         </div>
       )}
@@ -180,16 +190,18 @@ export default function FormularioSumate() {
       <button
         type="submit"
         disabled={enviando}
-        className="bg-he-rojo hover:bg-he-rojo-light disabled:opacity-60 disabled:cursor-not-allowed text-white px-8 py-4 rounded text-base font-medium transition-colors w-full md:w-auto"
+        aria-busy={enviando}
+        className="he-press bg-he-rojo hover:bg-he-rojo-light disabled:opacity-60 disabled:cursor-not-allowed text-white px-8 py-4 rounded text-base font-medium w-full md:w-auto md:min-w-[220px]"
       >
-        {enviando ? "Enviando..." : "Dejar mi contacto"}
+        {/* El ancho queda fijo y el texto se funde con blur: sin esto el botón
+            cambia de tamaño en el peor momento, justo al enviar. */}
+        <span className="he-swap inline-block" data-busy={enviando}>
+          {enviando ? "Enviando..." : "Dejar mi contacto"}
+        </span>
       </button>
     </form>
   );
 }
-
-const INPUT_CLASS =
-  "w-full px-4 py-3 bg-he-negro/5 border border-he-negro/20 rounded focus:border-he-celeste focus:outline-none text-base text-he-negro placeholder:text-he-negro/40";
 
 function Campo({
   label,
@@ -201,6 +213,7 @@ function Campo({
   inputMode,
   min,
   max,
+  autoComplete,
 }: {
   label: string;
   name: string;
@@ -211,6 +224,7 @@ function Campo({
   inputMode?: "numeric";
   min?: number;
   max?: number;
+  autoComplete?: string;
 }) {
   return (
     <div>
@@ -218,7 +232,7 @@ function Campo({
         htmlFor={name}
         className="block text-xs uppercase tracking-widest text-he-negro/55 mb-2"
       >
-        {label} {required && "*"}
+        {label} {required && <span aria-hidden="true">*</span>}
       </label>
       <input
         id={name}
@@ -230,7 +244,8 @@ function Campo({
         inputMode={inputMode}
         min={min}
         max={max}
-        className={INPUT_CLASS}
+        autoComplete={autoComplete}
+        className="he-field"
       />
     </div>
   );
@@ -242,12 +257,14 @@ function CampoProvincia({
   opciones,
   value,
   onChange,
+  autoComplete,
 }: {
   label: string;
   name: string;
   opciones: string[];
   value: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  autoComplete?: string;
 }) {
   return (
     <div>
@@ -255,7 +272,7 @@ function CampoProvincia({
         htmlFor={name}
         className="block text-xs uppercase tracking-widest text-he-negro/55 mb-2"
       >
-        {label} *
+        {label} <span aria-hidden="true">*</span>
       </label>
       <select
         id={name}
@@ -263,7 +280,8 @@ function CampoProvincia({
         required
         value={value}
         onChange={onChange}
-        className={INPUT_CLASS}
+        autoComplete={autoComplete}
+        className="he-field he-select"
       >
         <option value="">Seleccioná una provincia</option>
         {opciones.map((p) => (

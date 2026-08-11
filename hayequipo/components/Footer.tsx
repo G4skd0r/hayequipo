@@ -12,7 +12,7 @@ export default function Footer() {
               alt="Hay Equipo"
               className="h-6 w-auto mb-3 brightness-0 invert"
             />
-            <p className="text-sm text-he-blanco/55 max-w-xs leading-relaxed">
+            <p className="he-body text-sm text-he-blanco/55 max-w-xs leading-relaxed">
               Detectamos, formamos y potenciamos a jóvenes líderes con vocación
               pública para transformar Argentina.
             </p>
@@ -26,7 +26,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/nosotros"
-                  className="text-he-blanco/70 hover:text-he-blanco transition"
+                  className="text-he-blanco/70 hover:text-he-blanco transition-colors duration-150"
                 >
                   Nosotros
                 </Link>
@@ -34,7 +34,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/sumate"
-                  className="text-he-blanco/70 hover:text-he-blanco transition"
+                  className="text-he-blanco/70 hover:text-he-blanco transition-colors duration-150"
                 >
                   Conocé más
                 </Link>
@@ -42,7 +42,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/#donar"
-                  className="text-he-blanco/70 hover:text-he-blanco transition"
+                  className="text-he-blanco/70 hover:text-he-blanco transition-colors duration-150"
                 >
                   Red de Apoyo
                 </Link>
@@ -56,7 +56,7 @@ export default function Footer() {
             </h4>
             <a
               href="mailto:hayequipo2030@gmail.com"
-              className="text-sm text-he-blanco/70 hover:text-he-blanco transition block"
+              className="text-sm text-he-blanco/70 hover:text-he-blanco transition-colors duration-150 block"
             >
               hayequipo2030@gmail.com
             </a>
