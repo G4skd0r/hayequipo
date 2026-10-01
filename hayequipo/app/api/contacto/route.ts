@@ -1,7 +1,7 @@
 /**
  * POST /api/contacto
  *
- * Body: { nombre, email, edad, localidad, provincia, provinciaNacimiento, mensaje, origen? }
+ * Body: { nombre, email, telefono, edad, localidad, provincia, provinciaNacimiento, mensaje, origen? }
  *
  * "provincia" = provincia de residencia. "provinciaNacimiento" = dónde nació.
  *
@@ -25,6 +25,7 @@ export const runtime = "nodejs";
 interface Body {
   nombre?: unknown;
   email?: unknown;
+  telefono?: unknown;
   edad?: unknown;
   localidad?: unknown;
   provincia?: unknown;
@@ -47,6 +48,8 @@ export async function POST(req: NextRequest) {
     const nombre = typeof body.nombre === "string" ? body.nombre.trim() : "";
     const email =
       typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+    const telefono =
+      typeof body.telefono === "string" ? body.telefono.trim() : "";
     // El input manda la edad como string; la normalizamos a entero.
     const edad = Number.parseInt(String(body.edad ?? "").trim(), 10);
     const localidad =
@@ -67,6 +70,13 @@ export async function POST(req: NextRequest) {
     }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ error: "Email inválido" }, { status: 400 });
+    }
+    // Validación floja a propósito: los teléfonos argentinos se escriben de mil
+    // formas (con 0 y 15, con +54 9, con o sin guiones). Solo exigimos que haya
+    // una cantidad razonable de dígitos.
+    const digitosTelefono = telefono.replace(/\D/g, "");
+    if (digitosTelefono.length < 8 || digitosTelefono.length > 15) {
+      return NextResponse.json({ error: "Teléfono inválido" }, { status: 400 });
     }
     if (!Number.isFinite(edad) || edad < 14 || edad > 99) {
       return NextResponse.json({ error: "Edad inválida" }, { status: 400 });
@@ -99,6 +109,7 @@ export async function POST(req: NextRequest) {
       id,
       nombre,
       email,
+      telefono,
       edad,
       localidad,
       provincia,

@@ -36,6 +36,7 @@ export default function FormularioSumate() {
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
+    telefono: "",
     edad: "",
     localidad: "",
     provincia: "",
@@ -108,15 +109,29 @@ export default function FormularioSumate() {
         onChange={handleChange}
       />
 
-      <Campo
-        label="Email"
-        name="email"
-        type="email"
-        required
-        autoComplete="email"
-        value={formData.email}
-        onChange={handleChange}
-      />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Campo
+          label="Email"
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+
+        <Campo
+          label="Teléfono"
+          name="telefono"
+          type="tel"
+          inputMode="tel"
+          required
+          autoComplete="tel"
+          placeholder="11 2345-6789"
+          value={formData.telefono}
+          onChange={handleChange}
+        />
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Campo
@@ -214,6 +229,7 @@ function Campo({
   min,
   max,
   autoComplete,
+  placeholder,
 }: {
   label: string;
   name: string;
@@ -221,10 +237,11 @@ function Campo({
   required?: boolean;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  inputMode?: "numeric";
+  inputMode?: "numeric" | "tel";
   min?: number;
   max?: number;
   autoComplete?: string;
+  placeholder?: string;
 }) {
   return (
     <div>
@@ -245,6 +262,7 @@ function Campo({
         min={min}
         max={max}
         autoComplete={autoComplete}
+        placeholder={placeholder}
         className="he-field"
       />
     </div>

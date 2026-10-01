@@ -4,11 +4,11 @@
  * Por ahora solo manejamos el tab "Contactos" del formulario de Sumate.
  * Cuando se active Mercado Pago, agregamos las funciones de donaciones.
  *
- * Tab "Contactos": id | fecha | nombre | email | localidad | provincia | mensaje | origen | edad | provincia_nacimiento
+ * Tab "Contactos": id | fecha | nombre | email | localidad | provincia | mensaje | origen | edad | provincia_nacimiento | telefono
  *
- * "provincia" (col F) es la de residencia. Edad y provincia de nacimiento se
- * agregaron después, por eso van al final (I, J): así las filas viejas no se
- * desalinean.
+ * "provincia" (col F) es la de residencia. Edad, provincia de nacimiento y
+ * telefono se agregaron después, por eso van al final (I, J, K): así las filas
+ * viejas no se desalinean.
  */
 
 import { google, sheets_v4 } from "googleapis";
@@ -51,6 +51,7 @@ export interface ContactoInput {
   id: string;
   nombre: string;
   email: string;
+  telefono?: string;
   edad?: number;
   localidad?: string;
   provincia?: string;
@@ -64,7 +65,7 @@ export async function appendContacto(c: ContactoInput): Promise<void> {
 
   await client.spreadsheets.values.append({
     spreadsheetId: SPREADSHEET_ID,
-    range: `${TAB_CONTACTOS}!A:J`,
+    range: `${TAB_CONTACTOS}!A:K`,
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
@@ -79,6 +80,8 @@ export async function appendContacto(c: ContactoInput): Promise<void> {
           c.origen || "web",
           c.edad ?? "",
           c.provinciaNacimiento || "",
+          // Con apóstrofe para que Sheets no se coma el + ni los ceros iniciales.
+          c.telefono ? `'${c.telefono}` : "",
         ],
       ],
     },
