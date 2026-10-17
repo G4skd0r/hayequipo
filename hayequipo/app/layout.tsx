@@ -21,6 +21,24 @@ export const metadata: Metadata = {
   title: "Hay Equipo — Una nueva generación de líderes para Argentina",
   description:
     "Detectamos, formamos y potenciamos a jóvenes líderes con vocación pública para ocupar espacios de transformación real en Argentina.",
+  // El nombre va por el modo que atienden, no por el color del trazo:
+  // favicon-light = trazo negro, para pestañas claras.
+  // favicon-dark  = trazo blanco, para pestañas oscuras.
+  // El claro va primero: es el que toman los navegadores que ignoran `media`.
+  icons: {
+    icon: [
+      {
+        url: "/favicon-light.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon-dark.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
   openGraph: {
     title: "Hay Equipo",
     description:
